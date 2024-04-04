@@ -1,7 +1,7 @@
 import LemonSignal from "@rbxts/lemon-signal";
 import type { Signal, SignalCallback } from "@rbxts/lemon-signal/dist/LemonSignal";
 
-export class CountedLemonSignal<T> {
+export class LemonSignalCounter<T> {
 	private Signal: Signal<T>;
 	private OnConnectionsChanged = new LemonSignal<number>();
 	private TotalConnections = 0;

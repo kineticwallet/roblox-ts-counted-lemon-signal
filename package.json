@@ -1,6 +1,6 @@
 {
 	"name": "@rbxts/lemon-signal-counter",
-	"version": "0.1.0-ts.0",
+	"version": "0.1.0-ts.1",
 	"main": "dist/init.lua",
 	"keywords": ["counter", "tracker", "lemon-signal"],
 	"author": "kineticwallet",
