@@ -1,16 +1,15 @@
-import LemonSignal from "@rbxts/lemon-signal";
-import type { Signal, SignalCallback } from "@rbxts/lemon-signal/dist/LemonSignal";
+import { Connection, Signal, SignalCallback } from "@rbxts/lemon-signal";
 
 export class LemonSignalCounter<T> {
 	private Signal: Signal<T>;
-	private OnConnectionsChanged = new LemonSignal<number>();
+	private OnConnectionsChanged = new Signal<number>();
 	private TotalConnections = 0;
 
 	public constructor(signal: Signal<T>) {
 		this.Signal = signal;
 	}
 
-	public Connect(fn: SignalCallback<T>): Signal.Connection {
+	public Connect(fn: SignalCallback<T>): Connection<T> {
 		this.TotalConnections++;
 		this.OnConnectionsChanged.Fire(1);
 		return this.Signal.Connect(fn);
@@ -22,13 +21,13 @@ export class LemonSignalCounter<T> {
 		this.Signal.DisconnectAll();
 	}
 
-	public Disconnect(connection: Signal.Connection): void {
+	public Disconnect(connection: Connection<T>): void {
 		this.TotalConnections--;
 		this.OnConnectionsChanged.Fire(-1);
 		connection.Disconnect();
 	}
 
-	public Reconnect(connection: Signal.Connection): void {
+	public Reconnect(connection: Connection<T>): void {
 		this.TotalConnections++;
 		this.OnConnectionsChanged.Fire(1);
 		connection.Reconnect();
