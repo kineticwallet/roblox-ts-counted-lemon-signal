@@ -1,6 +1,6 @@
 {
 	"name": "@rbxts/lemon-signal-counter",
-	"version": "0.2.0-ts.0",
+	"version": "0.2.0-ts.1",
 	"description": "An wrapper to count the connections made to a LemonSignal.",
 	"main": "dist/init.lua",
 	"keywords": ["counter", "tracker", "lemon-signal"],
