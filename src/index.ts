@@ -1,9 +1,9 @@
 import { Connection, Signal, SignalCallback } from "@rbxts/lemon-signal";
 
-export class LemonSignalCounter<T> {
+export class SignalCounter<T> {
 	private Signal: Signal<T>;
-	private OnConnectionsChanged = new Signal<number>();
-	private TotalConnections = 0;
+	public OnConnectionsChanged = new Signal<number>();
+	public TotalConnections = 0;
 
 	public constructor(signal: Signal<T>) {
 		this.Signal = signal;
